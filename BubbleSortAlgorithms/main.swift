@@ -7,5 +7,55 @@
 
 import Foundation
 
-print("Hello, World!")
+// Pause to allow the users to see output
 
+func waitForInput() {
+    print("Press Return To Continue")
+    _ = readLine()
+    
+    
+}
+
+// Create an empty array
+var dataset: [Int] = []
+
+// Calculate the array
+
+for _ in 1...10 {
+    dataset.append(Int.random(in: 1...100))
+    
+}
+
+// Print the unsorted array
+print("Unsorted:")
+print(dataset)
+waitForInput()
+
+// Sort the array
+
+// Loop through the entire array n times
+
+for i in 0..<dataset.count {
+    // One pass through the array to float the highest number to the end
+    for j in 0..<dataset.count - 1 {
+
+        
+        // Compare left value to the right value
+        if dataset[j] > dataset[j+1] {
+            
+            // Swap value when left value is greater than the right value
+            let temporaryValue = dataset[j]     // Set aside left value
+            dataset[j] = dataset[j+1]
+            dataset[j+1] = temporaryValue
+            
+        }
+    }
+    // Print the array after n passes
+    print("Array after pass \(i+1)")
+}
+
+
+// Print the sorted arrays
+print("Sorted:")
+print(dataset)
+waitForInput()
