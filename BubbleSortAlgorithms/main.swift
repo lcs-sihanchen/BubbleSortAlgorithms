@@ -26,6 +26,8 @@ for _ in 1...10 {
     
 }
 
+dataset = [1,2,3,4,5,6,7,8,9,10]
+
 // Print the unsorted array
 print("Unsorted:")
 print(dataset)
@@ -35,22 +37,31 @@ waitForInput()
 
 // Loop through the entire array n times
 
+var isSorted = true
+
+
 for i in 0..<dataset.count {
+    if i == 1 && isSorted == true {
+        break
+    }
     // One pass through the array to float the highest number to the end
-    for j in 0..<dataset.count - 1 {
+    for j in 0..<dataset.count - 1 - i {
 
         
         // Compare left value to the right value
         if dataset[j] > dataset[j+1] {
-            
+            isSorted = false
             // Swap value when left value is greater than the right value
             let temporaryValue = dataset[j]     // Set aside left value
             dataset[j] = dataset[j+1]
             dataset[j+1] = temporaryValue
             
+            
         }
+        
     }
     // Print the array after n passes
+   
     print("Array after pass \(i+1)")
 }
 
